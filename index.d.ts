@@ -5847,7 +5847,7 @@ declare global {
          */
         export  interface OverlayOptions {
             map?: Map_2;
-            position?: Vector2;
+            position?: Vector2 | LngLat;
             content?: string | HTMLElement;
             visible?: boolean;
             zIndex?: number;
