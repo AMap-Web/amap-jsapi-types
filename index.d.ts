@@ -2871,7 +2871,7 @@ declare global {
              * @instance
              * @function
              */
-            'open'(map: Map_2, position: Vector2, height: number): void;
+            'open'(map: Map_2, position: Vector2, height?: number): void;
             /**
              * 关闭信息窗体
              * @memberof InfoWindow
