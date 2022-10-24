@@ -4848,7 +4848,7 @@ declare global {
 
 
 
-            cacheSize: number;
+            cacheSize?: number;
             WebGLParams?: any;
             vdataProxy?: string;
         }
