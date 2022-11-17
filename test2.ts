@@ -3702,3 +3702,95 @@ testText.on("click", (event: AMap.Text.EventMap<typeof testText>["click"]) => {
   // $ExpectType Text<TextExtraData>
   event.target;
 });
+
+/**
+ * overlay/MarkerCluster.ts
+ */
+
+ const markerClusterStyles = [{
+  url:"imgs/1.png",
+  size:new AMap.Size(32,32),
+  offset:new AMap.Pixel(-16,-30),
+},
+{
+  url:"imgs/2.png",
+  size:new AMap.Size(32,32),
+  offset:new AMap.Pixel(-16,-30),
+  textSize:12
+},
+{
+  url:"imgs/3.png",
+  size:new AMap.Size(48,48),
+  offset:new AMap.Pixel(-24,-45), 
+  textColor:'#CC0066'
+}];
+
+// $ExpectTYpe MarkerCluster;
+const testMarkerCluster_empty = new AMap.MarkerCluster();
+
+// $ExpectTYpe MarkerCluster;
+const testMarkerCluster = new AMap.MarkerCluster(map,[
+  { weight: 8, lnglat: ["108.939621", "34.343147"] },
+],{
+  gridSize:60,
+  maxZoom:18,
+  averageCenter:true,
+  clusterByZoomChange:false,
+  styles:markerClusterStyles,
+  renderMarker:({count,marker})=>{
+    console.log(count)
+    marker.setContent('content');
+  },
+  renderClusterMarker:({marker})=>{
+    marker.setContent('content');
+  },
+});
+
+// $ExpectType void
+testMarkerCluster.addData([{ weight: 8, lnglat: ["108.939621", "34.343147"] }]);
+
+// $ExpectType void
+testMarkerCluster.setData([]);
+
+// $ExpectType number
+testMarkerCluster.getClustersCount();
+
+// $ExpectType number
+testMarkerCluster.getGridSize();
+
+// $ExpectType void
+testMarkerCluster.setGridSize(50);
+
+// $ExpectType number
+testMarkerCluster.getMaxZoom();
+
+// $ExpectType void
+testMarkerCluster.setMaxZoom(16);
+
+// $ExpectType Array<MarkerClusterStyles>
+testMarkerCluster.getStyles();
+
+// $ExpectType void
+testMarkerCluster.setStyles(markerClusterStyles);
+
+// $ExpectType Map_2
+testMarkerCluster.getMap();
+
+// $ExpectType null
+testMarkerCluster_empty.getMap();
+
+// $ExpectType void
+testMarkerCluster.setMap(map);
+
+// $ExpectType Boolean
+testMarkerCluster.isAverageCenter();
+
+// $ExpectType void
+testMarkerCluster.setAverageCenter(true);
+
+testMarkerCluster.on("click", (event: AMap.MarkerCluster.EventMap<typeof testMarkerCluster>["click"]) => {
+  // $ExpectType "click"
+  event.type;
+  // $ExpectType MarkerCluster
+  event.target;
+});

@@ -7635,6 +7635,213 @@ declare global {
             visible?: boolean;
         }
 
+        /**
+         * @public
+         * @export
+         * @class MarkerCluster
+         * @param {Map_2} map 地图对象
+         * @param {Array<MarkerClusterDataOptions>} dataOptions 需要进行聚合显示的点数据
+         * @param {MarkerClusterOptions} markerClusterOptions 点聚合属性设置
+         * @param {Number} markerClusterOptions.gridSize 聚合计算时网格的像素大小，默认60
+         * @param {Number} markerClusterOptions.maxZoom 最大的聚合级别，大于该级别就不进行相应的聚合。默认值为 18，即小于 18 级的级别均进行聚合，18 及以上级别不进行聚合
+         * @param {Boolean} markerClusterOptions.averageCenter 聚合点的图标位置是否是所有聚合内点的中心点。默认为 true。数据中如果含有权重值，以权重高的点为中心进行聚合
+         * @param {Boolean} markerClusterOptions.clusterByZoomChange 地图缩放过程中是否聚合。默认值 false
+         * @param {Array<MarkerClusterStyles>} markerClusterOptions.styles 指定聚合后的点标记的图标样式，可缺省，缺省时为默认样式
+         * 数据元素分别对应聚合量在1-10,11-100,101-1000…的聚合点的样式；
+         * 当用户设置聚合样式少于实际叠加的点数，未设置部分按照系统默认样式显示；
+         * 单个图标样式包括以下几个属性：
+         * 1. {string} url：图标显示图片的url地址（必选）
+         * 2. {AMap.Size} size：图标显示图片的大小（必选）
+         * 3. {AMap.Pixel} offset：图标定位在地图上的位置相对于图标左上角的偏移值。默认为(0,0),不偏移（可选）
+         * 4. {AMap.Pixel} imageOffset：图片相对于可视区域的偏移值，此功能的作用等同CSS中的background-position属性。默认为(0,0)，不偏移（可选）
+         * 5. {String} textColor：文字的颜色，默认为"#000000"（可选）
+         * 6. {Number} textSize：文字的大小，默认为10（可选）
+         * @param {({count:number,marker:AMap.Marker})} markerClusterOptions.renderClusterMarker 该方法用来实现聚合点的自定义绘制，由开发者自己实现，API 将在绘制每个聚合点的时候调用这个方法，可以实现聚合点样式的灵活设定，指定了 renderClusterMarker 后 styles 无效。
+         * 该函数的入参为一个Object，包含如下属性：
+         * 1. count: 当前聚合点下聚合的 Marker 的数量
+         * 2. marker: 当前聚合点显示的 Marker
+         * @param {({marker:AMap.Marker})} markerClusterOptions.renderMarker 该方法用来实现非聚合点的自定义绘制，由开发者自己实现，API 将在绘制每个非聚合点的时候调用这个方法
+         * 该函数的入参为一个Object，包含如下属性：
+         * marker: 非聚合点 Marker 对象
+         */
+         export  class MarkerCluster extends Overlay {
+            constructor(map?: Map_2 | null, dataOptions?: Array<MarkerClusterDataOptions>,markerClusterOptions?: MarkerClusterOptions);
+
+            /**
+             * 在原数据基础上添加数据，格式同 dataOptions
+             * @name addData
+             * @function
+             * @param {Array<MarkerClusterDataOptions>} dataOptions 需要进行聚合显示的点数据
+             * @instance
+             * @memberof MarkerCluster
+             */
+            addData(dataOptions?: Array<MarkerClusterDataOptions>):void;
+
+            /**
+             * 设置数据，格式同 dataOptions
+             * @name setData
+             * @function
+             * @param {Array<MarkerClusterDataOptions>} dataOptions 需要进行聚合显示的点数据
+             * @instance
+             * @memberof MarkerCluster
+             */
+            setData(dataOptions?: Array<MarkerClusterDataOptions>):void;
+
+            /**
+             * 获取聚合点的总数量
+             * @name getClustersCount
+             * @function
+             * @instance
+             * @memberof MarkerCluster
+             * @returns {Number} 聚合点的总数量
+             */
+            getClustersCount():Number;
+
+            /**
+             * 获取聚合网格的像素大小
+             * @name getGridSize
+             * @function
+             * @instance
+             * @memberof MarkerCluster
+             * @returns {Number} 聚合网格的像素大小
+             */
+            getGridSize():Number;
+
+            /**
+             * 获取聚合网格的像素大小
+             * @name getGridSize
+             * @function
+             * @param {number} size 聚合网格的像素大小
+             * @instance
+             * @memberof MarkerCluster
+             */
+            setGridSize(size:Number):void;
+
+            /**
+             * 获取地图中点标记的最大聚合级别
+             * @name getMaxZoom
+             * @function
+             * @instance
+             * @memberof MarkerCluster
+             * @returns {Number} 地图中点标记的最大聚合级别
+             */
+            getMaxZoom():Number;
+
+            /**
+             * 设置地图中点标记的最大聚合级别
+             * @name setMaxZoom
+             * @function
+             * @param {number} size 地图中点标记的最大聚合级别
+             * @instance
+             * @memberof MarkerCluster
+             */
+            setMaxZoom(size:Number):void;
+
+            /**
+             * 获取样式
+             * @name getStyles
+             * @function
+             * @instance
+             * @memberof MarkerCluster
+             * @returns {Array<MarkerClusterStyles>} 聚合点样式
+             */
+            getStyles():Array<MarkerClusterStyles>;
+
+            /**
+             * 设置样式聚合点，格式同 opts.styles
+             * @name setStyles
+             * @function
+             * @param {Array<MarkerClusterStyles>} styles 聚合点样式
+             * @instance
+             * @memberof MarkerCluster
+             */
+            setStyles(styles):void;
+
+            /**
+             * 获取地图对象
+             * @name getMap
+             * @function
+             * @instance
+             * @memberof MarkerCluster
+             * @returns {Map_2|null} 地图对象
+             */
+            getMap():Map_2|null;
+
+            /**
+             * 设置地图对象
+             * @name setMap
+             * @function
+             * @param {Map_2|null} map 地图对象
+             * @instance
+             * @memberof MarkerCluster
+             */
+            setMap(map:Map_2|null):void;
+
+            /**
+             * 获取单个聚合点位置是否是聚合内所有标记的平均中心
+             * @name isAverageCenter
+             * @function
+             * @instance
+             * @memberof MarkerCluster
+             */
+            isAverageCenter():Boolean
+
+            /**
+             * 获取单个聚合点位置是否是聚合内所有标记的平均中心
+             * @name setAverageCenter
+             * @function
+             * @instance
+             * @memberof MarkerCluster
+             * @returns {averageCenter} 是否是聚合内所有标记的平均中心
+             */
+             setAverageCenter(averageCenter:Boolean):void
+        }
+
+        /**
+         * @public
+         * interface MarkerClusterDataOptions
+         * @export
+         */
+        export  interface MarkerClusterDataOptions {
+            weight:number;
+            lnglat: [string|number, string|number] | LngLat
+        }
+
+        /**
+         * @public
+         * interface MarkerClusterOptions
+         * @export
+         */
+        export  interface MarkerClusterOptions {
+            gridSize?:number;
+            maxZoom?:Number;
+            averageCenter?:Boolean;
+            clusterByZoomChange?:Boolean;
+            styles?:Array<MarkerClusterStyles>;
+            renderMarker?:({count,marker}:{count:number,marker:AMap.Marker})=>void,
+            renderClusterMarker?:({marker}:{marker:AMap.Marker})=>void
+        }
+
+        /**
+         * @public
+         * interface MarkerClusterStyles
+         * @param {string} url 图标显示图片的url地址（必选）
+         * @param {AMap.Size} size 图标显示图片的大小（必选）
+         * @param {AMap.Pixel} offset 图标定位在地图上的位置相对于图标左上角的偏移值。默认为(0,0),不偏移（可选）
+         * @param {AMap.Pixel} imageOffset 图片相对于可视区域的偏移值，此功能的作用等同CSS中的background-position属性。默认为(0,0)，不偏移（可选）
+         * @param {String} textColor 文字的颜色，默认为"#000000"（可选）
+         * @param {Number} textSize 文字的大小，默认为10（可选）
+         * @export
+         */
+        export  interface MarkerClusterStyles {
+            url:string;
+            size:AMap.Size;
+            offset?:AMap.Pixel;
+            imageOffset?:AMap.Pixel;
+            textColor?:String;
+            textSize?:Number
+        }
+
         export { }
 
     }
