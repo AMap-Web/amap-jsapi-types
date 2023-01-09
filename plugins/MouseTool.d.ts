@@ -1,4 +1,4 @@
-export class _MouseTool extends AMap.Event {
+export class _MouseTool extends AMap.Event<"draw"> {
   constructor(map: AMap.Map);
   public marker: (options: AMap.MarkerOptions) => void;
   public polyline: (options: AMap.PolylineOptions) => void;

@@ -3,11 +3,12 @@ import { _CircleEditor } from "./plugins/CircleEditor";
 import { _BezierCurveEditor } from "./plugins/BezierCurveEditor";
 import { _EllipseEditor } from "./plugins/EllipseEditor";
 import { _Hotspot } from "./plugins/Hotspot";
-import { _PolyEditor } from "./plugins/PolyEditor";
 import { _RectangleEditor } from "./plugins/RectangleEditor";
 import { _Heatmap } from "./plugins/Heatmap";
 import { _MarkerClusterer } from "./plugins/MarkerClusterer";
 import { _RangingTool } from "./plugins/RangingTool";
+import { _PolygonEditor } from "./plugins/PolygonEditor";
+import { _PolylineEditor } from "./plugins/PolylIneEditor";
 
 declare global {
   namespace AMap {
@@ -7384,7 +7385,8 @@ declare global {
     export class CircleEditor extends _CircleEditor {}
     export class BezierCurveEditor extends _BezierCurveEditor {}
     export class EllipseEditor extends _EllipseEditor {}
-    export class PolyEditor extends _PolyEditor {}
+    export class PolygonEditor extends _PolygonEditor {}
+    export class PolylineEditor extends _PolylineEditor {}
     export class RectangleEditor extends _RectangleEditor {}
     export class Hotspot extends _Hotspot {}
     export class MarkerClusterer extends _MarkerClusterer {}

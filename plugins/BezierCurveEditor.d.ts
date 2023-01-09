@@ -1,18 +1,37 @@
-import { MarkOptions } from "perf_hooks";
+export type BezierCurveEditorEventType =
+  | "addnode"
+  | "adjust"
+  | "removenode"
+  | "end"
+  | "move"
+  | "add";
 
-export type markType = "pathNode" | "ctrlNode" | "midNode";
-
-export type CurveEditorEventType = "addnode" | "adjust" | "removenode" | "end";
-
-export interface CurveEditorOptions {
-  /** 用于自定义编辑控制点的样式 */
-  getMarkerOptions: (type: markType) => AMap.MarkerOptions;
-  /* 用于自定义控制线的样式  */
-  getCtrlLineOptions: () => AMap.PolylineOptions;
+export interface BezierCurveEditorOptions {
+  /** 新创建的对象样式 */
+  createOptions?: AMap.BezierCurveOptions;
+  editOptions?: AMap.BezierCurveOptions;
+  /** 顶点样式 */
+  controlPoint?: AMap.MarkerOptions;
+  /** 中间点样式 */
+  midControlPoint?: AMap.MarkerOptions;
+  /** 贝塞尔控制点样式 */
+  bezierControlPoint?: AMap.MarkerOptions;
+  /** 贝塞尔控制线样式 */
+  bezierControlLine?: AMap.PolylineOptions;
 }
 
-export class _BezierCurveEditor extends AMap.Event<CurveEditorEventType> {
-  constructor(map: AMap.Map, curvue: AMap.BezierCurve, options: CurveEditorOptions);
-  public open: () => void;
-  public close: () => void;
+export class _BezierCurveEditor extends AMap.Event<BezierCurveEditorEventType> {
+  constructor(
+    map: AMap.Map,
+    circle?: AMap.BezierCurve,
+    options?: BezierCurveEditorOptions
+  );
+  /** 开始编辑 */
+  open: () => void;
+  /** 停止编辑 */
+  close: () => void;
+  /** 设置编辑对象 */
+  setTarget: (overlayer?: AMap.BezierCurve) => void;
+  /** 获取编辑对象 */
+  getTarget: () => AMap.BezierCurve | undefined;
 }
