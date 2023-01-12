@@ -53,10 +53,16 @@ export interface MarkerClustererOptions {
   zoomOnClick?: boolean;
 }
 
+export interface MarkerOptions {
+  lnglat: [number, number];
+  /** 权重 */
+  weight?: number;
+}
+
 export class _MarkerClusterer extends AMap.Event<"click"> {
   constructor(
     map: AMap.Map,
-    markers: AMap.Marker[],
+    markers: MarkerOptions[],
     options: MarkerClustererOptions
   );
   /** 添加一个需进行聚合的点标记 */
