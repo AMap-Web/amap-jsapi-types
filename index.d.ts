@@ -11,6 +11,9 @@ import { _PolygonEditor } from "./plugins/PolygonEditor";
 import { _PolylineEditor } from "./plugins/PolylIneEditor";
 
 declare global {
+  interface Window {
+    AMap: typeof AMap;
+  }
   namespace AMap {
     /**
      * @public
