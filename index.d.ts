@@ -4520,7 +4520,7 @@ declare global {
        * @returns {Bounds} bounds 新的地图视口范围
        */
       setFitView(
-        overlays: VectorLayer | Overlay[],
+        overlays?: VectorLayer | Overlay[],
         immediately?: boolean,
         avoid?: number[],
         maxZoom?: number
