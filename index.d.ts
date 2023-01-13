@@ -11,6 +11,9 @@ import { _PolygonEditor } from "./plugins/PolygonEditor";
 import { _PolylineEditor } from "./plugins/PolylIneEditor";
 
 declare global {
+  interface Window {
+    AMap: typeof AMap;
+  }
   namespace AMap {
     /**
      * @public
@@ -4517,7 +4520,7 @@ declare global {
        * @returns {Bounds} bounds 新的地图视口范围
        */
       setFitView(
-        overlays: VectorLayer | Overlay[],
+        overlays?: VectorLayer | Overlay[],
         immediately?: boolean,
         avoid?: number[],
         maxZoom?: number
