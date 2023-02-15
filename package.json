@@ -1,11 +1,12 @@
 {
   "name": "@amap/amap-jsapi-types",
-  "version": "0.0.10",
+  "version": "0.0.13",
   "description": "amap-jsapi-types 是高德开放平台官网提供的地图 JSAPI2.0 的 Typescript 声明文件",
   "typings": "index.d.ts",
   "main": "index.js",
   "files": [
-    "index.d.ts"
+    "index.d.ts",
+    "plugins"
   ],
   "scripts": {
     "test": "tsc test.ts --noEmit"
