@@ -13,6 +13,13 @@ import { _PolylineEditor } from "./plugins/PolylIneEditor";
 declare global {
   interface Window {
     AMap: typeof AMap;
+    /**
+     * 在2021年12月02日以后申请的 key 需要配合安全密钥一起使用。
+     * @public
+     */
+    _AMapSecurityConfig: {
+      securityJsCode: string
+    }
   }
   namespace AMap {
     /**
