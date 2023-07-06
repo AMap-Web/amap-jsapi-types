@@ -1869,6 +1869,7 @@ declare global {
      * @public
      */
     export type EllipseOptions = PolygonSharedOptions & {
+      height?: number;
       center?: LngLatLike;
       radius?: [number, number];
     };
