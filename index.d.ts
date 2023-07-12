@@ -987,6 +987,85 @@ declare global {
       visible?: boolean;
     }
 
+
+    /**
+     * 图层信息，需要包含图层对象
+     * 
+     * @public
+     */
+    export interface MapTypeLayerInfo {
+      id: string;
+      enable: string;
+      name: string;
+      type: 'base' | 'overlay';
+      layer: Layer;
+      show: boolean
+    }
+
+    /**
+     * 初始化 MapType 的可选项
+     * 
+     * @public
+     */
+    export interface MapTypeOptions {
+      defaultType?: number;
+      showTraffic?: boolean;
+      showRoad?: boolean;
+    }
+
+    /**
+     * 地图类型切换插件。用户通过该插件进行地图切换。
+     * 
+     * @public
+     */
+    export class MapType {
+      /**
+       * 
+       * @public
+       */
+      constructor(options?: MapTypeOptions);
+      /**
+       * 添加一个图层
+       * 
+       * @public
+       */
+      addLayer:(layerInfo: MapTypeLayerInfo) => void;
+      /**
+       * 移除一个图层
+       * 
+       * @public
+       */
+      removeLayer: (id: string) => void;
+      
+      /**
+       * 添加控件到地图上
+       * 
+       * @public
+       */
+      addTo: (map: AMap.Map) => void;
+
+      /**
+       * 从地图上移除控件
+       * 
+       * @public
+       */
+      remove: () => void;
+
+      /**
+       * 设置控件可见
+       * 
+       * @public
+       */
+      show: () => void;
+
+      /**
+       * 设置控件隐藏
+       * 
+       * @public
+       */
+      hide: () => void;
+    }
+
     /**
      * 地球上同一个地理位置的经纬度，在不同的坐标系中，会有少于偏移，国内目前常见的坐标系主要分为三种： </br>
      * 1. 地球坐标系——WGS84：常见于 GPS 设备，Google 地图等国际标准的坐标体系。 </br>
