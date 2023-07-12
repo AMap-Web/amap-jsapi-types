@@ -1942,12 +1942,23 @@ declare global {
        * @instance
        */
       setOptions(optsArg: EllipseOptions): void;
+
+      /**
+       * 设置椭圆离地高度 （此方法和相关属性 height 适用于 JSAPI v2.1Beta 及以上版本）。属性详情参看[Ellipse](#Ellipse)
+       * @name setHeight
+       * @function
+       * @param {EllipseOptions} height
+       * @memberof Ellipse
+       * @instance
+       */
+      setHeight(height: number): void;
     }
 
     /**
      * @public
      */
     export type EllipseOptions = PolygonSharedOptions & {
+      height?: number;
       center?: LngLatLike;
       radius?: [number, number];
     };
