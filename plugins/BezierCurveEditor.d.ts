@@ -6,7 +6,7 @@ export type BezierCurveEditorEventType =
   | "move"
   | "add";
 
-export interface BezierCurveEditorOptions {
+export interface _BezierCurveEditorOptions {
   /** 新创建的对象样式 */
   createOptions?: AMap.BezierCurveOptions;
   editOptions?: AMap.BezierCurveOptions;
@@ -23,8 +23,8 @@ export interface BezierCurveEditorOptions {
 export class _BezierCurveEditor extends AMap.Event<BezierCurveEditorEventType> {
   constructor(
     map: AMap.Map,
-    circle?: AMap.BezierCurve,
-    options?: BezierCurveEditorOptions
+    curve?: AMap.BezierCurve,
+    options?: _BezierCurveEditorOptions
   );
   /** 开始编辑 */
   open: () => void;

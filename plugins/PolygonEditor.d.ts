@@ -6,19 +6,19 @@ export type PolygonEditorEventType =
   | "move"
   | "add";
 
-export interface PolygonEditorOptions {
+export interface _PolygonEditorOptions {
   /** 新创建的对象样式 */
   createOptions?: AMap.PolygonOptions;
   editOptions?: AMap.PolygonOptions;
-  controlPoint?: AMap.MarkerOptions;
-  midControlPoint?: AMap.MarkerOptions;
+  controlPoint?: AMap.CircleMarkerOptions;
+  midControlPoint?: AMap.CircleMarkerOptions;
 }
 
 export class _PolygonEditor extends AMap.Event<PolygonEditorEventType> {
   constructor(
     map: AMap.Map,
     polygon?: AMap.Polygon,
-    options?: PolygonEditorOptions
+    options?: _PolygonEditorOptions
   );
   /** 开始编辑 */
   open: () => void;

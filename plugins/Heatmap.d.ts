@@ -1,4 +1,4 @@
-export interface HeatmapOptions {
+export interface _HeatMapOptions {
   /** 热力图中单个点的半径，默认：30 */
   radius?: number;
   /** 热力图的渐变区间 */
@@ -17,11 +17,11 @@ export interface DataSet {
     count: number;
   }[];
 }
-export class _Heatmap {
-  constructor(map: AMap.Map, options: HeatmapOptions);
+export class _HeatMap {
+  constructor(map: AMap.Map, options: _HeatMapOptions);
 
   setMap: (map: AMap.Map) => void;
-  setOptions: (options: HeatmapOptions) => void;
+  setOptions: (options: _HeatMapOptions) => void;
   /** 向热力图数据集中添加坐标点，count不填写时默认：1 */
   addDataPoint: (
     lng: AMap.LngLat["lng"],
@@ -33,6 +33,6 @@ export class _Heatmap {
   hide: () => void;
   show: () => void;
   getMap: () => AMap.Map;
-  getOptions: () => HeatmapOptions;
+  getOptions: () => _HeatMapOptions;
   getDataSet: () => DataSet;
 }

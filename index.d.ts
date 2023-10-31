@@ -1,15 +1,23 @@
 import { _MouseTool } from "./plugins/MouseTool";
-import { _CircleEditor } from "./plugins/CircleEditor";
-import { _BezierCurveEditor } from "./plugins/BezierCurveEditor";
-import { _EllipseEditor } from "./plugins/EllipseEditor";
+import { _CircleEditor, _CircleEditorOptions } from "./plugins/CircleEditor";
+import {
+  _BezierCurveEditor,
+  _BezierCurveEditorOptions,
+} from "./plugins/BezierCurveEditor";
+import { _EllipseEditor, _EllipseEditorOptions } from "./plugins/EllipseEditor";
 import { _Hotspot } from "./plugins/Hotspot";
-import { _RectangleEditor } from "./plugins/RectangleEditor";
-import { _Heatmap } from "./plugins/Heatmap";
+import {
+  _RectangleEditor,
+  _RectangleEditorOptions,
+} from "./plugins/RectangleEditor";
+import { _HeatMap, _HeatMapOptions } from "./plugins/Heatmap";
 import { _MarkerClusterer } from "./plugins/MarkerClusterer";
-import { _RangingTool } from "./plugins/RangingTool";
-import { _PolygonEditor } from "./plugins/PolygonEditor";
-import { _PolylineEditor } from "./plugins/PolylIneEditor";
-
+import { _RangingTool, _RangingToolOptions } from "./plugins/RangingTool";
+import { _PolygonEditor, _PolygonEditorOptions } from "./plugins/PolygonEditor";
+import {
+  _PolylineEditor,
+  _PolylineEditorOptions,
+} from "./plugins/PolylineEditor";
 declare global {
   interface Window {
     AMap: typeof AMap;
@@ -987,24 +995,23 @@ declare global {
       visible?: boolean;
     }
 
-
     /**
      * 图层信息，需要包含图层对象
-     * 
+     *
      * @public
      */
     export interface MapTypeLayerInfo {
       id: string;
       enable: string;
       name: string;
-      type: 'base' | 'overlay';
+      type: "base" | "overlay";
       layer: Layer;
-      show: boolean
+      show: boolean;
     }
 
     /**
      * 初始化 MapType 的可选项
-     * 
+     *
      * @public
      */
     export interface MapTypeOptions {
@@ -1015,52 +1022,52 @@ declare global {
 
     /**
      * 地图类型切换插件。用户通过该插件进行地图切换。
-     * 
+     *
      * @public
      */
     export class MapType {
       /**
-       * 
+       *
        * @public
        */
       constructor(options?: MapTypeOptions);
       /**
        * 添加一个图层
-       * 
+       *
        * @public
        */
-      addLayer:(layerInfo: MapTypeLayerInfo) => void;
+      addLayer: (layerInfo: MapTypeLayerInfo) => void;
       /**
        * 移除一个图层
-       * 
+       *
        * @public
        */
       removeLayer: (id: string) => void;
-      
+
       /**
        * 添加控件到地图上
-       * 
+       *
        * @public
        */
       addTo: (map: AMap.Map) => void;
 
       /**
        * 从地图上移除控件
-       * 
+       *
        * @public
        */
       remove: () => void;
 
       /**
        * 设置控件可见
-       * 
+       *
        * @public
        */
       show: () => void;
 
       /**
        * 设置控件隐藏
-       * 
+       *
        * @public
        */
       hide: () => void;
@@ -7473,17 +7480,29 @@ declare global {
 
     export {};
 
-    /** 各类插件类型 */
+    /** 各类插件类型声明 */
     export class MouseTool extends _MouseTool {}
     export class CircleEditor extends _CircleEditor {}
+    export type CircleEditorOptions = _CircleEditorOptions;
     export class BezierCurveEditor extends _BezierCurveEditor {}
+    export type BezierCurveEditorOptions = _BezierCurveEditorOptions;
     export class EllipseEditor extends _EllipseEditor {}
+    export type EllipseEditorOptions = _EllipseEditorOptions;
     export class PolygonEditor extends _PolygonEditor {}
+    export type PolygonEditorOptions = _PolygonEditorOptions;
     export class PolylineEditor extends _PolylineEditor {}
+    export type PolylineEditorOptions = _PolylineEditorOptions;
     export class RectangleEditor extends _RectangleEditor {}
+    export type RectangleEditorOptions = _RectangleEditorOptions;
     export class Hotspot extends _Hotspot {}
     export class MarkerClusterer extends _MarkerClusterer {}
     export class RangingTool extends _RangingTool {}
+    export type RangingToolOptions = _RangingToolOptions;
+    export class Scale extends Control {}
+    export class ToolBar extends Control {}
+    export class ControlBar extends Control {}
+    export type HeatMapOptions = _HeatMapOptions;
+    export class HeatMap extends _HeatMap {}
   }
 }
 export {};

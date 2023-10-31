@@ -16,5 +16,5 @@ export class _MouseTool extends AMap.Event<"draw"> {
    * 设为true时，鼠标操作关闭的同时清除地图上绘制的所有覆盖物对象；
    * 设为false时，保留所绘制的覆盖物对象。默认为false
    */
-  public close: (isClose: boolean) => void;
+  public close: (isClose?: boolean) => void;
 }

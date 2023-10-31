@@ -6,7 +6,7 @@ export type EllipseEditorEventType =
   | "move"
   | "add";
 
-export interface EllipseEditorOptions {
+export interface _EllipseEditorOptions {
   /** 新创建的对象样式 */
   createOptions?: AMap.EllipseOptions;
   editOptions?: AMap.EllipseOptions;
@@ -24,7 +24,7 @@ export class _EllipseEditor extends AMap.Event<EllipseEditorEventType> {
   constructor(
     map: AMap.Map,
     circle?: AMap.Ellipse,
-    options?: EllipseEditorOptions
+    options?: _EllipseEditorOptions
   );
   /** 开始编辑 */
   open: () => void;
