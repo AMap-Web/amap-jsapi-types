@@ -22,7 +22,7 @@ export interface StyleOptions {
   textSize?: number;
 }
 
-export interface MarkerClustererOptions {
+export interface _MarkerClustererOptions {
   /** 聚合计算时网格的像素大小，默认60 */
   gridSize?: number;
   /** 聚合的最小数量。默认值为2，即小于2个点则不能成为一个聚合 */
@@ -55,7 +55,6 @@ export interface MarkerClustererOptions {
 
 export interface MarkerOptions {
   lnglat: [number, number];
-  /** 权重 */
   weight?: number;
 }
 
@@ -63,7 +62,7 @@ export class _MarkerClusterer extends AMap.Event<"click"> {
   constructor(
     map: AMap.Map,
     markers: MarkerOptions[],
-    options: MarkerClustererOptions
+    options: _MarkerClustererOptions
   );
   /** 添加一个需进行聚合的点标记 */
   public addMarker: (marker: AMap.Marker) => void;

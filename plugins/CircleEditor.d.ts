@@ -6,7 +6,7 @@ export type CircleEditorEventType =
   | "move"
   | "add";
 
-export interface CircleEditorOptions {
+export interface _CircleEditorOptions {
   /** 新创建的对象样式 */
   createOptions?: AMap.CircleOptions;
   editOptions?: AMap.CircleOptions;
@@ -18,7 +18,7 @@ export class _CircleEditor extends AMap.Event<CircleEditorEventType> {
   constructor(
     map: AMap.Map,
     circle?: AMap.Circle,
-    options?: CircleEditorOptions
+    options?: _CircleEditorOptions
   );
   /** 开始编辑 */
   open: () => void;

@@ -6,7 +6,7 @@ export type PolylineEditorEventType =
   | "move"
   | "add";
 
-export interface PolylineEditorOptions {
+export interface _PolylineEditorOptions {
   /** 新创建的对象样式 */
   createOptions?: AMap.PolylineOptions;
   editOptions?: AMap.PolylineOptions;
@@ -18,7 +18,7 @@ export class _PolylineEditor extends AMap.Event<PolylineEditorEventType> {
   constructor(
     map: AMap.Map,
     polyline?: AMap.Polyline,
-    options?: PolylineEditorOptions
+    options?: _PolylineEditorOptions
   );
   /** 开始编辑 */
   open: () => void;

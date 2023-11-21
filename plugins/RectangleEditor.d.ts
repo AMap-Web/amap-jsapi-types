@@ -6,7 +6,7 @@ export type RectangleEditorEventType =
   | "move"
   | "add";
 
-export interface RectangleEditorOptions {
+export interface _RectangleEditorOptions {
   /** 新创建的对象样式 */
   createOptions?: AMap.RectangleOptions;
   editOptions?: AMap.RectangleOptions;
@@ -20,7 +20,7 @@ export class _RectangleEditor extends AMap.Event<RectangleEditorEventType> {
   constructor(
     map: AMap.Map,
     circle?: AMap.Rectangle,
-    options?: RectangleEditorOptions
+    options?: _RectangleEditorOptions
   );
   /** 开始编辑 */
   open: () => void;
