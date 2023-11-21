@@ -5395,8 +5395,8 @@ declare global {
     export interface MassMarkersStyleOptions {
       url: string;
       size: Vector2 | Size;
-      rotation: number;
-      anchor?: Pixel;
+      rotation?: number;
+      anchor: Pixel;
       zIndex?: number;
     }
 
