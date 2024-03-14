@@ -8,7 +8,7 @@ import { _Heatmap } from "./plugins/Heatmap";
 import { _MarkerClusterer } from "./plugins/MarkerClusterer";
 import { _RangingTool } from "./plugins/RangingTool";
 import { _PolygonEditor } from "./plugins/PolygonEditor";
-import { _PolylineEditor } from "./plugins/PolylIneEditor";
+import { _PolylineEditor } from "./plugins/PolylineEditor";
 
 declare global {
   namespace AMap {
